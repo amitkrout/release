@@ -60,7 +60,7 @@ presubmits:
     branches:
     - master
     cluster: api.ci
-    context: ci/prow/v4.2-integration-e2e
+    context: ci/prow/v4.2-integration
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -68,8 +68,8 @@ presubmits:
       ci-operator.openshift.io/prowgen-controlled: "true"
       ci-operator.openshift.io/variant: v4.2
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-odo-master-v4.2-integration-e2e
-    rerun_command: /test v4.2-integration-e2e
+    name: pull-ci-openshift-odo-master-v4.2-integration
+    rerun_command: /test v4.2-integration
     spec:
       containers:
       - args:
@@ -79,9 +79,9 @@ presubmits:
         - --report-password-file=/etc/report/password.txt
         - --report-username=ci
         - --secret-dir=/secrets/odo-secret
-        - --secret-dir=/usr/local/integration-e2e-cluster-profile
-        - --target=integration-e2e
-        - --template=/usr/local/integration-e2e
+        - --secret-dir=/usr/local/integration-cluster-profile
+        - --target=integration
+        - --template=/usr/local/integration
         - --variant=v4.2
         command:
         - ci-operator
@@ -89,9 +89,9 @@ presubmits:
         - name: CLUSTER_TYPE
           value: aws
         - name: JOB_NAME_SAFE
-          value: integration-e2e
+          value: integration
         - name: TEST_COMMAND
-          value: scripts/openshiftci-presubmit-all-tests.sh
+          value: scripts/openshiftci-presubmit-integration-tests.sh
         image: ci-operator:latest
         imagePullPolicy: Always
         name: ""
@@ -105,9 +105,9 @@ presubmits:
         - mountPath: /etc/boskos
           name: boskos
           readOnly: true
-        - mountPath: /usr/local/integration-e2e-cluster-profile
+        - mountPath: /usr/local/integration-cluster-profile
           name: cluster-profile
-        - mountPath: /usr/local/integration-e2e
+        - mountPath: /usr/local/integration
           name: job-definition
           subPath: cluster-launch-installer-src.yaml
         - mountPath: /secrets/odo-secret
@@ -150,13 +150,13 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )v4.2-integration-e2e,?($|\s.*)
+    trigger: (?m)^/test( | .* )v4.2-integration,?($|\s.*)
   - agent: kubernetes
     always_run: true
     branches:
     - master
     cluster: api.ci
-    context: ci/prow/v4.3-integration-e2e
+    context: ci/prow/v4.3-integration
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -164,8 +164,8 @@ presubmits:
       ci-operator.openshift.io/prowgen-controlled: "true"
       ci-operator.openshift.io/variant: v4.3
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-odo-master-v4.3-integration-e2e
-    rerun_command: /test v4.3-integration-e2e
+    name: pull-ci-openshift-odo-master-v4.3-integration
+    rerun_command: /test v4.3-integration
     spec:
       containers:
       - args:
@@ -175,9 +175,9 @@ presubmits:
         - --report-password-file=/etc/report/password.txt
         - --report-username=ci
         - --secret-dir=/secrets/odo-secret
-        - --secret-dir=/usr/local/integration-e2e-cluster-profile
-        - --target=integration-e2e
-        - --template=/usr/local/integration-e2e
+        - --secret-dir=/usr/local/integration-cluster-profile
+        - --target=integration
+        - --template=/usr/local/integration
         - --variant=v4.3
         command:
         - ci-operator
@@ -185,9 +185,9 @@ presubmits:
         - name: CLUSTER_TYPE
           value: aws
         - name: JOB_NAME_SAFE
-          value: integration-e2e
+          value: integration
         - name: TEST_COMMAND
-          value: scripts/openshiftci-presubmit-all-tests.sh
+          value: scripts/openshiftci-presubmit-integration-tests.sh
         image: ci-operator:latest
         imagePullPolicy: Always
         name: ""
@@ -201,9 +201,9 @@ presubmits:
         - mountPath: /etc/boskos
           name: boskos
           readOnly: true
-        - mountPath: /usr/local/integration-e2e-cluster-profile
+        - mountPath: /usr/local/integration-cluster-profile
           name: cluster-profile
-        - mountPath: /usr/local/integration-e2e
+        - mountPath: /usr/local/integration
           name: job-definition
           subPath: cluster-launch-installer-src.yaml
         - mountPath: /secrets/odo-secret
@@ -246,13 +246,13 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )v4.3-integration-e2e,?($|\s.*)
+    trigger: (?m)^/test( | .* )v4.3-integration,?($|\s.*)
   - agent: kubernetes
     always_run: true
     branches:
     - master
     cluster: api.ci
-    context: ci/prow/v4.4-integration-e2e
+    context: ci/prow/v4.4-integration
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -260,8 +260,8 @@ presubmits:
       ci-operator.openshift.io/prowgen-controlled: "true"
       ci-operator.openshift.io/variant: v4.4
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-odo-master-v4.4-integration-e2e
-    rerun_command: /test v4.4-integration-e2e
+    name: pull-ci-openshift-odo-master-v4.4-integration
+    rerun_command: /test v4.4-integration
     spec:
       containers:
       - args:
@@ -271,9 +271,9 @@ presubmits:
         - --report-password-file=/etc/report/password.txt
         - --report-username=ci
         - --secret-dir=/secrets/odo-secret
-        - --secret-dir=/usr/local/integration-e2e-cluster-profile
-        - --target=integration-e2e
-        - --template=/usr/local/integration-e2e
+        - --secret-dir=/usr/local/integration-cluster-profile
+        - --target=integration
+        - --template=/usr/local/integration
         - --variant=v4.4
         command:
         - ci-operator
@@ -281,9 +281,9 @@ presubmits:
         - name: CLUSTER_TYPE
           value: aws
         - name: JOB_NAME_SAFE
-          value: integration-e2e
+          value: integration
         - name: TEST_COMMAND
-          value: scripts/openshiftci-presubmit-all-tests.sh
+          value: scripts/openshiftci-presubmit-integration-tests.sh
         image: ci-operator:latest
         imagePullPolicy: Always
         name: ""
@@ -297,9 +297,9 @@ presubmits:
         - mountPath: /etc/boskos
           name: boskos
           readOnly: true
-        - mountPath: /usr/local/integration-e2e-cluster-profile
+        - mountPath: /usr/local/integration-cluster-profile
           name: cluster-profile
-        - mountPath: /usr/local/integration-e2e
+        - mountPath: /usr/local/integration
           name: job-definition
           subPath: cluster-launch-installer-src.yaml
         - mountPath: /secrets/odo-secret
@@ -342,13 +342,13 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )v4.4-integration-e2e,?($|\s.*)
+    trigger: (?m)^/test( | .* )v4.4-integration,?($|\s.*)
   - agent: kubernetes
     always_run: true
     branches:
     - master
     cluster: api.ci
-    context: ci/prow/v4.5-integration-e2e
+    context: ci/prow/v4.5-integration
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -356,8 +356,8 @@ presubmits:
       ci-operator.openshift.io/prowgen-controlled: "true"
       ci-operator.openshift.io/variant: v4.5
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-odo-master-v4.5-integration-e2e
-    rerun_command: /test v4.5-integration-e2e
+    name: pull-ci-openshift-odo-master-v4.5-integration
+    rerun_command: /test v4.5-integration
     spec:
       containers:
       - args:
@@ -367,9 +367,9 @@ presubmits:
         - --report-password-file=/etc/report/password.txt
         - --report-username=ci
         - --secret-dir=/secrets/odo-secret
-        - --secret-dir=/usr/local/integration-e2e-cluster-profile
-        - --target=integration-e2e
-        - --template=/usr/local/integration-e2e
+        - --secret-dir=/usr/local/integration-cluster-profile
+        - --target=integration
+        - --template=/usr/local/integration
         - --variant=v4.5
         command:
         - ci-operator
@@ -377,9 +377,9 @@ presubmits:
         - name: CLUSTER_TYPE
           value: aws
         - name: JOB_NAME_SAFE
-          value: integration-e2e
+          value: integration
         - name: TEST_COMMAND
-          value: scripts/openshiftci-presubmit-all-tests.sh
+          value: scripts/openshiftci-presubmit-integration-tests.sh
         image: ci-operator:latest
         imagePullPolicy: Always
         name: ""
@@ -393,9 +393,9 @@ presubmits:
         - mountPath: /etc/boskos
           name: boskos
           readOnly: true
-        - mountPath: /usr/local/integration-e2e-cluster-profile
+        - mountPath: /usr/local/integration-cluster-profile
           name: cluster-profile
-        - mountPath: /usr/local/integration-e2e
+        - mountPath: /usr/local/integration
           name: job-definition
           subPath: cluster-launch-installer-src.yaml
         - mountPath: /secrets/odo-secret
@@ -438,4 +438,4 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )v4.5-integration-e2e,?($|\s.*)
+    trigger: (?m)^/test( | .* )v4.5-integration,?($|\s.*)
